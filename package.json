@@ -1,0 +1,19 @@
+{
+  "name": "nodetpfinal",
+  "version": "1.0.0",
+  "description": "Ejercicio TP Final - Comisión #25023 Back-End/Node JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "keywords": [],
+  "author": "Ricardo Balsimelli",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  }
+}

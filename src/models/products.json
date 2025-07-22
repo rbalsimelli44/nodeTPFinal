@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "nombre": "Producto A",
+    "categoria": "electronicos",
+    "precio": 100
+  },
+  {
+    "id": 2,
+    "nombre": "Producto B",
+    "categoria": "ropa",
+    "precio": 25
+  },
+  {
+    "id": 3,
+    "nombre": "Producto C",
+    "categoria": "electronicos",
+    "precio": 200
+  },
+  {
+    "id": 4,
+    "nombre": "Producto D",
+    "categoria": "ropa",
+    "precio": 50
+  },
+  {
+    "id": 5,
+    "nombre": "Producto E",
+    "categoria": "electronicos",
+    "precio": 300
+  },
+  {
+    "id": 6,
+    "nombre": "Producto F",
+    "categoria": "ropa",
+    "precio": 75
+  }
+]
