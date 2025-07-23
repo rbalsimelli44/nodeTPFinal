@@ -22,6 +22,9 @@ const corsOptions = {
 }; 
 app.use(cors(corsOptions));
 
+// Middleware para parsear JSON en el cuerpo de las solicitudes
+app.use(express.json());
+
 // Ruta 0: Enviar mensaje inicial
 app.get("/", (req, res) => {
     res.send("<h1>Hola API RES Ejercicio TP Final - NodeJS</h1>");

@@ -18,7 +18,7 @@ export const getProductId = (productoId) => {
 }
 
 export const addNewProduct = (datos) => {
-    console.log({ ...datos });
+    
     const newProduct = {
         id: productos.length + 1,
         ...datos,
@@ -29,4 +29,18 @@ export const addNewProduct = (datos) => {
   fs.writeFileSync(jsonPath, JSON.stringify(productos));
 
   return newProduct;
+};
+
+export const deleteProduct = (productoId) => {
+    const productoIndice = productos.findIndex(producto => producto.id === productoId);
+
+  if (productoIndice == -1) {
+    return null;
+  } else {
+    const producto = productos.splice(productoIndice, 1);
+
+    fs.writeFileSync(jsonPath, JSON.stringify(productos));
+
+    return producto;
+  };
 };

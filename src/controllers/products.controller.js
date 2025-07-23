@@ -19,10 +19,10 @@ export const getProductId = (req, res) => {
 
 // Función 5: Agregar un nuevo producto
 export const addNewProduct = (req, res) => {
-  console.log(req.body)
+  
   const  { nombre, categoria, precio } = req.body;
 
-  const newProduct = model.addNewProduct({ nombre, categoria, precio });
+  const newProduct = service.addNewProduct({ nombre, categoria, precio });
 
   res.status(201).json(newProduct);
 };
@@ -30,13 +30,13 @@ export const addNewProduct = (req, res) => {
 // Función 6: Borrar un producto
 export const deleteProduct = (req, res) => {
   const productoId = parseInt(req.params.id);
-  const producto = productos.find(producto => producto.id === productoId);
+  
+  const producto = service.deleteProduct(productoId);
 
-  if (producto) {
-    res.json(producto);
-  } else {
-    res.status(404).send('Producto no encontrado');
+  if (!producto) {
+    return res.status(404).json({ error: "Producto no encontrado" })
   }
 
-  res.status(204).json(deleteProduct);
+  res.status(204).send();
+
 };
