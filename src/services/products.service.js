@@ -1,17 +1,17 @@
 import * as model from "../models/products.model.js";
 
-export const getAllProducts = () => {
-  return model.getAllProducts();
+export const getAllProducts = async () => {
+  return await model.getAllProducts();
 };
 
-export const getProductId = (productoId) => {
-  return model.getProductId(productoId);
+export const getProductId = async (productoId) => {
+  return await model.getProductId(productoId);
 };
 
-export const addNewProduct = ({ nombre, categoria, precio }) => {
-  return model.addNewProduct({ nombre, categoria, precio });
+export const addNewProduct = async ({ nombre, categoria, precio }) => {
+  return await model.addNewProduct({ nombre, categoria, precio });
 };
 
-export const deleteProduct = (productoId) => {
-  return model.deleteProduct(productoId);
+export const deleteProduct = async (productoId) => {
+  return await model.deleteProduct(productoId);
 };

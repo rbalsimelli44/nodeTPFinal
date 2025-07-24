@@ -1,14 +1,15 @@
 import * as service from "../services/products.service.js";
 
 // Función 1: Mostrar todos los productos
-export const getAllProducts = (req, res) => {
-    res.json(service.getAllProducts());
+export const getAllProducts = async (req, res) => {
+    res.json( await service.getAllProducts());
 };
 
 // Función 2: Obtener producto por ID
-export const getProductId = (req, res) => {
-    const productoId = parseInt(req.params.id);
-    const producto = service.getProductId(productoId);
+export const getProductId = async (req, res) => {
+    const productoId = req.params.id;
+    console.log(productoId, req.params.id);
+    const producto = await service.getProductId(productoId);
 
     if (producto) {
       res.json(producto);
@@ -18,20 +19,20 @@ export const getProductId = (req, res) => {
 };
 
 // Función 5: Agregar un nuevo producto
-export const addNewProduct = (req, res) => {
+export const addNewProduct = async (req, res) => {
   
   const  { nombre, categoria, precio } = req.body;
 
-  const newProduct = service.addNewProduct({ nombre, categoria, precio });
+  const newProduct = await service.addNewProduct({ nombre, categoria, precio });
 
   res.status(201).json(newProduct);
 };
 
 // Función 6: Borrar un producto
-export const deleteProduct = (req, res) => {
-  const productoId = parseInt(req.params.id);
+export const deleteProduct = async (req, res) => {
+  const productoId = req.params.id;
   
-  const producto = service.deleteProduct(productoId);
+  const producto = await service.deleteProduct(productoId);
 
   if (!producto) {
     return res.status(404).json({ error: "Producto no encontrado" })

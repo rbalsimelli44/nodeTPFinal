@@ -1,10 +1,13 @@
+import "dotenv/config";
 import express from 'express';
 import cors from 'cors';
 import productsRouter from './src/routes/products.router.js';
 import usersRouter from './src/routes/users.router.js';
+import authRouter from './src/routes/auth.router.js';
+
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3001;
 
 // configuración básica de CORS para permitir todos los orígenes
 app.use(cors());
@@ -33,6 +36,7 @@ app.get("/", (req, res) => {
 // Agrega el módulo de rutas
 app.use("/api/v1",productsRouter);
 app.use("/api/v1",usersRouter);
+app.use("/api/v1",authRouter);
 
 // Error 404: Enviar mensaje si no se encuentra la ruta
 app.use((req, res, next) => {
