@@ -8,7 +8,7 @@ export const getAllProducts = async (req, res) => {
 // Función 2: Obtener producto por ID
 export const getProductId = async (req, res) => {
     const productoId = req.params.id;
-    console.log(productoId, req.params.id);
+ 
     const producto = await service.getProductId(productoId);
 
     if (producto) {
