@@ -29,7 +29,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 // Middleware para asegurar estar logeado para determinadas rutas
-app.use(authRouter);
+ app.use(authRouter);
 
 // Ruta 0: Enviar mensaje inicial
 app.get("/", (req, res) => {
