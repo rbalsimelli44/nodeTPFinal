@@ -4,7 +4,7 @@ import cors from 'cors';
 import productsRouter from './src/routes/products.router.js';
 import usersRouter from './src/routes/users.router.js';
 import authRouter from './src/routes/auth.router.js';
-
+import { auth } from './src/middlewares/auth.middleware.js';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -28,13 +28,16 @@ app.use(cors(corsOptions));
 // Middleware para parsear JSON en el cuerpo de las solicitudes
 app.use(express.json());
 
+// Middleware para asegurar estar logeado para determinadas rutas
+app.use(authRouter);
+
 // Ruta 0: Enviar mensaje inicial
 app.get("/", (req, res) => {
     res.send("<h1>Hola API RES Ejercicio TP Final - NodeJS</h1>");
 });
 
 // Agrega el módulo de rutas
-app.use("/api/v1",productsRouter);
+app.use("/api/v1", productsRouter);
 app.use("/api/v1",usersRouter);
 app.use("/api/v1",authRouter);
 
